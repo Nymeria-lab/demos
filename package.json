@@ -1,0 +1,11 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Nymeria-lab/demos.git",
+  "author": "[Nymeria] <[945212191@qq.com]>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "4.28.4"
+  }
+}
