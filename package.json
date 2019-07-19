@@ -2,10 +2,31 @@
   "name": "demos",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev-hot": "node_modules/.bin/webpack-dev-server --mode=development",
+    "dev": "node_modules/.bin/webpack --mode=development",
+    "init": "webpack --mode=production --config ./webpack.dll.js"
+  },
   "repository": "https://github.com/Nymeria-lab/demos.git",
   "author": "[Nymeria] <[945212191@qq.com]>",
   "license": "MIT",
   "dependencies": {
-    "webpack": "4.28.4"
+    "@babel/core": "^7.5.5",
+    "angular": "^1.6.3",
+    "angular-animate": "^1.6.3",
+    "angular-moment": "^1.2.0",
+    "angular-touch": "^1.6.6",
+    "angular-ui-router": "^0.4.2",
+    "assets-webpack-plugin": "^3.9.10",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "oclazyload": "^1.1.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "webpack": "4.28.4",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   }
 }
