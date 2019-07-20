@@ -68,12 +68,16 @@
 .main .logo {
   color: #333;
   text-align: left;
-  margin-bottom: 30px;
   line-height: 1;
   height: 110px;
-  margin-top: -50px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
   *zoom: 1;
+}
+
+.main .logo .title{
+  font-size: 40px;
 }
 
 .main .logo a {
