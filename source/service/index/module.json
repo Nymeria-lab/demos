@@ -1,0 +1,12 @@
+{
+  "name": "service.index",
+  "app_name": "myApp",
+  "states": [
+    {
+      "name": "index",
+      "url": "/index",
+      "templateUrl": "./main/template.html",
+      "controller": "./main/controller"
+    }
+  ]
+}

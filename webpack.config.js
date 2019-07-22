@@ -5,6 +5,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const webpack = require("webpack");
+const index_middle = require('./server/middle/index-middle')('');
+const DllLib = require("./static/resources/assets.dll");
 
 module.exports = {
     devtool: 'inline-source-map',
@@ -13,6 +15,9 @@ module.exports = {
         port: 9000,
         host: '0.0.0.0',
         disableHostCheck: true,
+        before: function (app) {
+            app.use(['/service'], index_middle);
+        }
     },
     stats: {
         children: false
@@ -107,5 +112,27 @@ module.exports = {
             }
         }
     },
+    plugins: [
+        // new BundleAnalyzerPlugin(),
+        new webpack.NormalModuleReplacementPlugin(/(.*){target}(\.*)/, function (resource) {
+            resource.request = resource.request.replace('{target}', 'pc');
+        }),
+        new CleanWebpackPlugin([
+            `static/service/pc`
+        ]),
+        new webpack['HashedModuleIdsPlugin'](),
+        new MiniCssExtractPlugin({
+            filename: '[name]-[contenthash].css',
+            allChunks: true
+        }),
+        new AssetsPlugin({
+            filename: `./static/resources/assets.service.pc.json`
+        })
+    ].concat(Object.keys(DllLib).filter(v => v !== '').map(v => {
+        return new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require(`./static/resources/manifest_${v}.json`),
+        })
+    }))
 
 };
