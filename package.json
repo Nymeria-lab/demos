@@ -5,6 +5,7 @@
   "scripts": {
     "dev-hot": "node_modules/.bin/webpack-dev-server --mode=development",
     "dev": "node_modules/.bin/webpack --mode=development",
+    "server": "node  ./server/server.js",
     "init": "webpack --mode=production --config ./webpack.dll.js"
   },
   "repository": "https://github.com/Nymeria-lab/demos.git",

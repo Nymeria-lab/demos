@@ -44,25 +44,12 @@ module.exports = function (cdn_host, server_disable_map) {
             theme: '',
             os: /Windows/.test(req.headers['user-agent']) ? 'windows' : 'not_windows'
         };
-        let _company_setting_url = `${req.protocol}://${req.headers.host}/api/auth.get.company.setting.info`;
-        request({
-            url: _company_setting_url,
-            headers: {
-                'User-Agent': 'request'
-            }
-        }, function (error, response, body) {
-            if (!error && response.statusCode === 200) {
-                _params = Object.assign(_params, JSON.parse(body).result);
-            } else {
-                console.log('_company_url: ', `${req.protocol} ${req.headers.host}`);
-                console.error('错误:' + error + ' 状态:' + response);
-            }
-            let template_file = __dirname + "/../template/" + (_app === 'admin' ? 'admin' : _target) + ".ejs";
-            ejs.renderFile(template_file, {params: _params}, null, function (err, str) {
-                res.set("Cache-Control", "no-store");
-                res.write(str);
-                res.end();
-            });
-        })
+        let template_file = __dirname + "/../template/pc.ejs";
+        ejs.renderFile(template_file, {params: _params}, null, function (err, str) {
+            console.log(err);
+            res.set("Cache-Control", "no-store");
+            res.write(str);
+            res.end();
+        });
     }
 };

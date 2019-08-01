@@ -30,7 +30,9 @@ module.exports = {
     },
     output: {
         path: __dirname + `/static/service/pc/`,
-        filename: "test.js"
+        filename: "test.js",
+        chunkFilename: "[name]-[chunkhash].js",
+        publicPath: `/static/service/pc/`
     },
     module: {
         rules: [

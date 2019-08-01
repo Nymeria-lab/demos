@@ -8,6 +8,7 @@ window.app = angular.module("myApp", [uiRouter, ocLazyLoad, ngFileUpload]); // j
 
 require("./index/module.json");
 let module_json_loaders = require.context('./', true, /module\.json$/);
+debugger
 
 module_json_loaders.keys().forEach(function (_key) {
     window.app.config(["$stateProvider", module_json_loaders(_key)]);
