@@ -34,7 +34,6 @@ module.exports = function (cdn_host, server_disable_map) {
             app_type: _app,
             app_target: _target,
             cdn_host: cdn_host || '',
-            special_title: '',
             company_logo: '',
             domain: '',
             app_company: '',
@@ -46,7 +45,6 @@ module.exports = function (cdn_host, server_disable_map) {
         };
         let template_file = __dirname + "/../template/pc.ejs";
         ejs.renderFile(template_file, {params: _params}, null, function (err, str) {
-            console.log(err);
             res.set("Cache-Control", "no-store");
             res.write(str);
             res.end();
