@@ -1,0 +1,401 @@
+{
+  "app_name": "myApp",
+  "name": "service.base",
+  "states": [
+    {
+      "name": "bill_viewer",
+      "url": "/bill_viewer?bill_id&model_id&package_design_id&process_instance_id",
+      "parent": "main",
+      "templateUrl": "./bill_view/bill_viewer.html",
+      "controller": "BillViewerCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "form",
+      "url": "/form",
+      "template": "<div ui-view='' class='dynamic-form'></div>",
+      "parent": "main",
+      "role": "emp"
+    },
+    {
+      "name": "form.data",
+      "url": "/data?template_id&form_id&id&auth",
+      "templateUrl": "./workflow/form/dynamic.html",
+      "controller": "formDataController",
+      "role": "emp"
+    },
+    {
+      "name": "message_offline",
+      "url": "/message_offline?id",
+      "controller": "messageOfflineCtrl",
+      "parent": "main",
+      "sideBar": true,
+      "templateUrl": "./message/offline_message/message_offline.html",
+      "role": "emp"
+    },
+    {
+      "name": "print",
+      "url": "/print?open_api&template&id",
+      "templateUrl": "./print/template.html",
+      "controller": "PrintCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "search",
+      "url": "/search?index",
+      "parent": "main",
+      "templateUrl": "./search/templates/search.html",
+      "controller": "SearchCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "search_result",
+      "url": "/search_result?index&group",
+      "parent": "main",
+      "templateUrl": "./search/templates/search_result.html",
+      "controller": "SearchResultCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "tempfile_attach",
+      "url": "/tempfile_attach?file_name&expire_time&domain",
+      "controller": "tempFileAttachCtrl",
+      "parent": "main",
+      "sideBar": true,
+      "templateUrl": "./message/tempfile_message/message_tempfile.html",
+      "role": "emp"
+    },
+    {
+      "name": "workflow",
+      "url": "/workflow",
+      "templateUrl": "./workflow/workflow/workflow.html",
+      "parent": "main",
+      "controller": "workflowCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "pending_list",
+      "url": "/pending_list",
+      "templateUrl": "./workflow/workflow/pending.html",
+      "parent": "workflow",
+      "controller": "pendingApprovalCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "approved_list",
+      "url": "/approved_list",
+      "templateUrl": "./workflow/workflow/approved.html",
+      "parent": "workflow",
+      "controller": "approvedCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "my_create_list",
+      "url": "/my_create_list",
+      "templateUrl": "./workflow/workflow/mycreate.html",
+      "parent": "workflow",
+      "controller": "myCreateCtrl",
+      "role": "emp"
+    },
+    {
+      "name": "process",
+      "url": "/process?process_id&show_bar",
+      "templateUrl": "./workflow/workflow/process/process.html",
+      "parent": "main",
+      "controller": "processCtrl",
+      "sideBar": false,
+      "role": "emp"
+    },
+    {
+      "name": "approve_history",
+      "url": "/approve_history?process_id",
+      "templateUrl": "./workflow/workflow/history/history.html",
+      "parent": "main",
+      "controller": "historyCtrl",
+      "sideBar": true,
+      "role": "emp"
+    },
+
+    {
+      "name": "content",
+      "url": "/content?index?id",
+      "templateUrl": "./file/content/content.html",
+      "controller": "contentCtrl",
+      "role": "emp",
+      "target": "mobile"
+    },
+    {
+      "name": "file",
+      "url": "/file?id",
+      "templateUrl": "./file/file/file.html",
+      "controller": "fileCtrl",
+      "parent": "main",
+      "role": "emp",
+      "target": "mobile"
+    },
+    {
+      "name": "index",
+      "url": "/index",
+      "templateUrl": "./index/index.html",
+      "parent": "main",
+      "controller": "IndexCtrl",
+      "role": "emp",
+      "animator": {
+        "com_select": "leaveToBottom"
+      },
+      "target": "mobile"
+    },
+    {
+      "name": "file_detail",
+      "url": "/file_detail?id",
+      "templateUrl": "./file/file/detail/file_detail.html",
+      "controller": "fileDetailCtrl",
+      "role": "emp",
+      "target": "mobile"
+    },
+    {
+      "name": "file_new",
+      "url": "/file_new?id?folder_name",
+      "parent": "main",
+      "templateUrl": "./file/file_new/file.html",
+      "controller": "fileCtrlNew",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "index",
+      "url": "/index?next&category",
+      "parent": "main",
+      "templateUrl": "./index/index.pc.html",
+      "controller": "PCIndexCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "form.define",
+      "url": "/define",
+      "templateUrl": "./workflow/form/define/define.html",
+      "controller": "formDefineController",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "form.designer",
+      "url": "/designer?form_id",
+      "templateUrl": "./workflow/form/designer/designer.html",
+      "controller": "formDesignerController",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "workflow_online",
+      "url": "/workflow_online",
+      "templateUrl": "./workflow_online/workbench/workbench/workbench.html",
+      "parent": "main",
+      "controller": "workflowOnlineWorkbenchCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "workflow_online.center",
+      "url": "/center",
+      "templateUrl": "./workflow_online/workbench/center/center.html",
+      "controller": "workflowOnlineCenterCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "workflow_online_workflow",
+      "url": "/workflow_online/workflow?wf_id&wf_inst_id&wf_inst_detail_id&form_data_id&form_auth",
+      "templateUrl": "./workflow_online/workbench/workflow/workflow.html",
+      "controller": "workflowOnlineWorkflowCtrl",
+      "role": "emp",
+      "target": "pc",
+      "parent": "main_no_bottom"
+    },
+    {
+      "name": "workflow_online.my_create",
+      "url": "/my_create?wf_id",
+      "templateUrl": "./workflow_online/workbench/my_create/my_create.html",
+      "controller": "workflowOnlineMyCreateCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "workflow_online.pending",
+      "url": "/pending",
+      "templateUrl": "./workflow_online/workbench/pending/pending.html",
+      "controller": "workflowOnlinePendingCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "workflow_online.approved",
+      "url": "/approved",
+      "templateUrl": "./workflow_online/workbench/approved/approved.html",
+      "controller": "workflowOnlineApprovedCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "workflow_online.temporary",
+      "url": "/temporary",
+      "templateUrl": "./workflow_online/workbench/temporary/temporary.html",
+      "controller": "workflowOnlineTemporaryCtrl",
+      "role": "emp",
+      "target": "pc"
+    },
+    {
+      "name": "bill",
+      "url": "/bill?type&form_id&form_data_id&wf_id&wf_inst_id&wf_inst_detail_id&bill_id&access_bill_id&wf_assignment_id&wf_name&bill_name",
+      "controller": "billCtrl",
+      "parent": "main_no_bottom",
+      "templateUrl": "./bill/bill.html",
+      "role": "employee"
+    },
+
+    {
+      "name": "personnel_affair_list",
+      "url": "/personnel_affair_list?affair_type",
+      "controller": "billListCtrl",
+      "parent": "main",
+      "templateUrl": "./bill_list/bill_list.html",
+      "role": "employee"
+    },
+    {
+      "name": "emp_add_list",
+      "url": "/emp_add_list",
+      "controller": "billListCtrl",
+      "parent": "main",
+      "templateUrl": "./bill_list/bill_list.html",
+      "role": "employee"
+    }
+  ],
+  "requires": [
+    "../attend/externals/choose-next-user.js",
+    "../attend/externals/workflow-attend-bill.js",
+    "../org_emp/externals/emphistoryservice.js",
+    "../org_emp/externals/empservice.js",
+    "./bill_view/controller.js",
+    "./bill_view/service.js",
+    "./file/file/service.js",
+    "./file/file/widgets/widgets.js",
+    "./message/offline_message/controller.js",
+    "./message/offline_message/service.js",
+    "./message/tempfile_message/controller.js",
+    "./print/controller.js",
+    "./print/service.js",
+    "./print/widgets/widgets.js",
+    "./search/controller.js",
+    "./search/service.js",
+    "./search/widgets.js",
+    "./workflow/form/controller.js",
+    "./workflow/form/services.js",
+    "./workflow/workflow/controller.js",
+    "./workflow/workflow/history/controller.js",
+    "./workflow/workflow/process/controller.js",
+    "./workflow/workflow/service.js",
+    "./workflow/workflow/service_offline.js",
+    "./workflow/workflow/widgets/attach/attach.js",
+    "./workflow/workflow/widgets/enroll/enroll_work_exp.js",
+    "./workflow/workflow/widgets/opinion/opinion.js",
+    "./select_emp/select_emp.js",
+    "./workflow/workflow/dialog/diff-match-patch.js",
+    "./workflow/workflow/dialog/angular-diff-match-patch.js",
+    "./workflow/workflow/dialog/show_diff_dialog.js",
+    "./bill/process/widget/controller.js",
+    "./file/file/widgets/folder_selector.css",
+    "./search/templates/search_widget.css",
+    "./workflow/workflow/dialog/show_diff_dialog.scss",
+    "./bill/controller.js",
+    "./bill/process/controller.js",
+    "./bill/process/detail/controller.js",
+    "./bill_list/controller.js",
+    "./bill_list/service.js",
+    "./bill_list/valid_identity/controller.js",
+    "./bill/process/widget/process.scss",
+    "./bill/process/detail/detail.scss"
+  ],
+  "requires_pc": [
+    "../setting/externals/print_window_ctl.js",
+    "./file/file_new/controller.js",
+    "./file/file_new/file_preview/file_preview.js",
+    "./index/controller.pc.js",
+    "./index/widgets.js",
+    "./workflow/form/define/controller.js",
+    "./workflow/form/define/services.js",
+    "./workflow/form/designer/controller.js",
+    "./workflow/form/designer/services.js",
+    "./workflow_online/workbench/service.js",
+    "./workflow_online/workbench/approved/controller.js",
+    "./workflow_online/workbench/center/controller.js",
+    "./workflow_online/workbench/my_create/controller.js",
+    "./workflow_online/workbench/pending/controller.js",
+    "./workflow_online/workbench/temporary/controller.js",
+    "./workflow_online/workbench/workbench/controller.js",
+    "./workflow_online/workbench/workflow/controller.js",
+    "./workflow_online/workbench/workflow/opinion/controller.js",
+    "./workflow_online/workbench/workflow.pc.scss",
+    "./workflow_online/workbench/center/center.pc.scss",
+    "./workflow_online/workbench/workbench/workbench.pc.scss",
+    "./workflow_online/workbench/workflow/workflow.pc.scss",
+    "./workflow_online/workbench/workflow/opinion/opinion.pc.scss",
+    "./workflow_online/workbench/workflow.pc.scss",
+    "./workflow_online/workbench/workflow.scss",
+    "./bill_view/bill_viewer_pc.scss",
+    "./index/index.pc.scss",
+    "./print/print.pc.css",
+    "./search/templates/search.pc.css",
+    "./search/templates/search_result.pc.css",
+    "./search/templates/search_widget.pc.css",
+    "./workflow/form/dynamic-form.scss",
+    "./workflow/workflow/approved_list/approved_list.pc.css",
+    "./workflow/workflow/my_create_list/my_create_list.pc.css",
+    "./workflow/workflow/pending_list/pending_list.pc.css",
+    "./workflow/workflow/process/process.pc.css",
+    "./workflow/workflow/workflow.pc.css",
+    "./workflow/workflow/dialog/show_diff_dialog.pc.scss",
+    "./bill/bill.pc.scss",
+    "./bill/process/process.pc.scss",
+    "./bill_list/bill_list.pc.scss",
+    "./bill_list/valid_identity/valid.pc.scss"
+  ],
+  "requires_mobile": [
+    "../circle/externals/articleservice.js",
+    "./file/content/controller.js",
+    "./file/file/controller.js",
+    "./file/file/detail/controller.js",
+    "./index/controller.js",
+    "./index/directives/directives.js",
+    "./index/service.js",
+    "./bill_view/bill_viewer_mobile.scss",
+    "./index/index.scss",
+    "./index/main.css",
+    "./search/templates/search.mobile.css",
+    "./search/templates/search_result.mobile.css",
+    "./search/templates/search_widget.mobile.css",
+    "./workflow/workflow/approved_list/approved_list.mobile.css",
+    "./workflow/workflow/my_create_list/my_create_list.mobile.css",
+    "./workflow/workflow/pending_list/pending_list.mobile.css",
+    "./workflow/workflow/process/process.mobile.css",
+    "./workflow/workflow/workflow.mobile.css",
+    "./workflow/workflow/dialog/show_diff_dialog.mobile.scss",
+    "./workflow_online/workbench/service.js",
+    "./workflow_online/workbench/approved/controller.js",
+    "./workflow_online/workbench/center/controller.js",
+    "./workflow_online/workbench/my_create/controller.js",
+    "./workflow_online/workbench/pending/controller.js",
+    "./workflow_online/workbench/temporary/controller.js",
+    "./workflow_online/workbench/workbench/controller.js",
+    "./workflow_online/workbench/workflow/controller.js",
+    "./workflow_online/workbench/workflow/opinion/controller.js",
+    "./workflow_online/workbench/workflow.mobile.scss",
+    "./workflow_online/workbench/center/center.mobile.scss",
+    "./workflow_online/workbench/workbench/workbench.mobile.scss",
+    "./workflow_online/workbench/workflow/workflow.mobile.scss",
+    "./workflow_online/workbench/workflow.mobile.scss",
+    "./bill/bill.mobile.scss",
+    "./workflow_online/workbench/workflow/opinion/opinion.mobile.scss",
+    "./bill/process/detail/detail.mobile.scss"
+  ]
+}

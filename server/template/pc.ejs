@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" ng-app="myApp" ng-controller="indexCtroller" ng-click="win_click($event)">
+<html lang="zh-cn" ng-app="myApp" ng-controller="PublicController">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
     <meta name="renderer" content="webkit" />
@@ -12,17 +12,19 @@
     <meta http-equiv="Cache" content="no-cache">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <title>demos</title>
+    <title><%= params.special_title ? params.special_title : "demos" %></title>
     <meta name="keywords" content="demos">
     <meta name="description" content="demos">
+    <link rel="shortcut icon" href="/img?index=<%= params.company_logo %>"/>
+    <%- include('lib/css', {libs: params.css_libs,cdn:params.cdn_host,theme:params.cc_highlight,os:params.os}); %>
 </head>
 
 <ui-view class="h-c-main-frame"></ui-view>
 <carousel-panel></carousel-panel>
-<div class="waiting-box" ng-show="is_waitting_show" ng-cloak>
-    <div class="waiting"></div>
-</div>
 <script type="text/javascript" src="<%= params.cdn_host %>/static/resources/lib/jquery.min.js?v=3.3.1"></script>
+<script type="text/javascript" src="<%= params.cdn_host %>/static/resources/lib/jquery.nicescroll.min.js"></script>
 <script type="text/javascript" src="<%= params.cdn_host %>/static/resources/lib/jquery.orgchart.js"></script>
+<%- include('lib/init_js', params); %>
+<%- include('lib/js', {libs: params.js_libs,cdn:params.cdn_host}); %>
 </body>
 </html>

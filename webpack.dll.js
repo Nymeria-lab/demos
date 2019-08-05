@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
+
+
 module.exports = {
     entry: {
         "lib_0": [
@@ -15,11 +17,13 @@ module.exports = {
         ],
         "lib_1": [
             'better-scroll',
-            'iscroll',
             'moment',
             "sortablejs",
             'vconsole',
             'es6-promise',
+            'weixin-js-sdk',
+            'kkjs',
+            'dingtalk-jsapi',
             'crypto-js',
             'ng-file-upload'
         ],
@@ -59,7 +63,7 @@ module.exports = {
             {from: './node_modules/ace-builds/src-min-noconflict', to: 'lib/ace'},
             {from: './node_modules/jquery/dist/jquery.min.js', to: 'lib'},
             {from: './node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js', to: 'lib'},
-            {from: './node_modules/orgchart/dist/js/jquery.orgchart.js', to: 'lib'}
+            {from: './node_modules/orgchart/dist/js/jquery.orgchart.js', to: 'lib'},
         ]),
         new AssetsPlugin({
             filename: `./static/resources/assets.dll.json`

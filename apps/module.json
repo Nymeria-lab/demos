@@ -1,0 +1,21 @@
+{
+  "name": "demos",
+  "app_name": "myApp",
+  "states": [
+    {
+      "name": "main",
+      "abstract": true,
+      "templateUrl": "./index/template.html"
+    },
+    {
+      "name": "index",
+      "url": "/index",
+      "templateUrl": "./index/template.html",
+      "controller": "IndexPcCtrl",
+      "parent": "main"
+    }
+  ]
+}
+
+
+
